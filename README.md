@@ -14,6 +14,7 @@ https://github.com/max32002/swei-spring
 2. 西北工业大学中文CV模板：https://www.overleaf.com/latex/templates/npu-cv/mncqzxhvfzrx
 3. WHU武汉大学中文简历模板:https://www.overleaf.com/latex/templates/whuwu-han-da-xue-zhong-wen-jian-li-mo-ban/dbkvxrqjmzpd
    以上模板都做得很好，我在他们的基础上做了少量改动。主要改动包括：
+   
    1）. 修改校标、配色、字体等，进行SZU版本的改动；
    2）. 面对非计算机系校友添加一些友好的注释。
    3）. 微操调整，更符合个人审美。
