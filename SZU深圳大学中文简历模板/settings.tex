@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+% 文档类设置为 article，字体大小为 11pt，可修改为 10pt 或 12pt 以调整整体字体大小。
+
+% -------------------- 加载常用宏包 --------------------
+% 只是使用模板的深大友友不需要管这部分，需要额外的宏包直接插入到这里面就行，正常不会冲突。
+\usepackage{xltxtra}         % 提供 XeTeX 特性扩展，自动加载 fontspec 和 xunicode
+\usepackage{bookmark}        % 生成 PDF 书签，便于导航
+\usepackage{hyperref}        % 启用超链接支持
+\hypersetup{hidelinks}       % 去掉超链接的边框，仅保留跳转功能
+
+\usepackage{url}             % 美化 URL 的排版
+\urlstyle{tt}                % 将 URL 显示为等宽字体（更适合代码或技术文档）
+
+\usepackage{multicol}        % 支持多栏布局
+\usepackage{xcolor}          % 提供颜色支持，用于字体、背景等
+\usepackage{calc}            % 支持简单的算术计算，用于布局调整
+\usepackage{graphicx}        % 提供插图支持
+\usepackage{tikz}            % 矢量图绘制工具
+\usetikzlibrary{calc}        % 扩展 tikz 功能，支持节点位置计算
+
+\usepackage{fontspec}        % 设置字体，支持 TrueType 和 OpenType
+\usepackage{xeCJK}           % 支持中英文字体设置及混排优化
+\usepackage{relsize}         % 支持调整字体相对大小
+\usepackage{xspace}          % 优化命令后空格处理
+\usepackage{fontawesome5}    % 引入 FontAwesome 字体图标
+
+\usepackage{titlesec}        % 自定义标题格式
+\usepackage{enumitem}        % 优化列表格式
+\usepackage{siunitx}         % 支持数值和单位的正确排版
+\usepackage{amssymb}         % 提供额外数学符号支持
+\usepackage{tabularx}        % 支持自适应宽度表格
+\usepackage{fancybox}        % 创建盒子、阴影等效果
+\usepackage{float}           % 控制浮动对象位置（如表格、图片）
+
+% -------------------- 自定义设置 --------------------
+% 这部分使用者不要改动，不然会出现奇怪的问题。
+% （参考自@LeyuDame，网址：https://github.com/LeyuDame/BNUCV/tree/main）
+% 1. 解决中文字符与数字间自动插入空格问题
+\CJKsetecglue{}
+
+% 2. 美化 C++ 的显示方式
+\protected\def\Cpp{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.28ex}{\relsize{-1}++}}\xspace}
+
+% 3. 段落设置：取消段首缩进
+\setlength{\parindent}{0pt}
+
+% 4. 取消页码显示（可根据需要开启页码）
+\pagenumbering{gobble}
+
+% 5. 列表格式优化：调整顶部间距和左缩进
+\setlist[itemize]{topsep=0em, leftmargin=*}
+\setlist[enumerate]{topsep=0em, leftmargin=*}
+
+% -------------------- 自定义标题样式 --------------------
+% 标题可以根据你自己的需要按照注释调整
+% 一级标题样式
+\titleformat{\section}                       % 自定义 \section 格式
+  {\LARGE\bfseries\raggedright}              % 设置字体为 LARG、加粗、左对齐
+  {}{0em}                                    % 标题前无编号
+  {}                                         % 标题格式结束
+  [{\color{SZU_Pink}\titlerule}]             % 标题下方添加彩色横线（深大荔枝红）
+\titlespacing*{\section}{0cm}{*1.2}{*1.2}    % 一级标题的前后间距设置
+
+% 二级标题样式
+\titleformat{\subsection}
+  {\large\bfseries\raggedright}              % 设置字体为 large、加粗、左对齐
+  {}{0em}                                    % 标题前无编号
+  {}                                         % 标题格式结束
+  []                                         % 无下划线
+\titlespacing*{\subsection}{0cm}{*1.2}{*1.2} % 二级标题的前后间距设置
+
+% -------------------- 页面布局设置 --------------------
+% 这部分也是可以改动的，如果你觉得上下左右哪些地方留空白太多或者太少可以手动调整，下面注释很清晰不多说了。
+\usepackage[
+  a4paper,        % 页面大小
+  left=1.2cm,     % 左边距
+  right=1.2cm,    % 右边距
+  top=1.5cm,      % 上边距
+  bottom=1cm,     % 下边距
+  nohead          % 取消页眉
+]{geometry}
+
+% -------------------- 行间距与表格行距设置 --------------------
+% 同理按需改动
+\renewcommand{\arraystretch}{1.2}  % 表格行高调整为 1.2 倍
+\linespread{1.2}                   % 正文行距调整为 1.2 倍
+
+% -------------------- 字体设置 --------------------
+% 可以自行更换字体，注意放到fonts文件夹中，并且在以下的SweiSpring替换为你的字体名字，加粗命名规则不变。
+% 设置英文字体
+\setmainfont[
+    Path=fonts/,     % 字体所在路径
+    Extension=.ttf,  % 字体文件扩展名
+    BoldFont=* Bold, % 加粗字体文件名规则
+]{SweiSpring}
+
+% 设置中文字体
+\setCJKmainfont[
+    Path=fonts/,     % 字体所在路径
+    Extension=.ttf,  % 字体文件扩展名
+    BoldFont=* Bold, % 加粗字体文件名规则
+]{SweiSpring}
+
+% -------------------- 颜色定义 --------------------
+% 定义深大荔枝红（来自深大官网深圳大学标识：https://www.szu.edu.cn/xxgk/sdbs.htm）
+% 注意logo和配色有修改都需要根据官网官方pdf的要求，最好不要发挥你的主观能动性，不然挨老师批了找我就查无此人哈。
+\definecolor{SZU_Pink}{RGB}{149, 0, 64}

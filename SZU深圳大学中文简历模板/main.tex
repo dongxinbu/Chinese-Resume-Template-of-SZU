@@ -1,0 +1,127 @@
+% 有任何反馈请看readme.tex
+\include{settings}
+% 引入设置文档settings.tex(不需修改)
+% 右上方展示你的照片：删除images文件夹中的avatar图片，上传你自己的照片改为avatar.png，其余的别改动。
+\newcommand{\school}{计算机与软件学院}
+% 改为自己的学院，学院英文名不长的可在中文名后加上，用“|”隔开。
+\newcommand{\contact}{
+    \scriptsize
+    \textcolor{white}{
+        \faEnvelope \quad \href{mailto:youremail@SZU.edu.com}{xxxx@xxxmail.com}
+        % 更改为自己的邮箱，尽量使用深大学生邮箱显得专业 ๑乛◡乛๑ （别惦记你那qq邮箱了 (╯‵□′)╯︵┻━┻   ）
+        \hspace{4em}
+        \faPhone \quad xxx-xxxx-xxxx
+        % 填自己手机号，海外考虑前置+86
+    }
+}
+
+\begin{document}
+
+% 页眉设计
+\begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north, inner sep=0pt](header) at (current page.north){
+        \includegraphics[width=\paperwidth]{images/header.png}
+    };
+    \node[anchor=west](school_logo) at (header.west){\hspace{0.5cm}};
+    \node[anchor=east](school_name) at(header.east){
+        \textcolor{white}{\textbf{\school}}\hspace{0.5cm}
+    };
+\end{tikzpicture}
+\vspace{-3.5em}
+
+% 页脚设计
+\begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=south, inner sep=0pt](footer) at (current page.south){
+        \includegraphics[width=\paperwidth]{images/footer.png}
+    };
+    \node[anchor=center] at(footer.center){\contact};
+\end{tikzpicture}
+
+% 页面背景水印，深大官方logo，不需改动，不想要水印整模块删除即可
+\begin{tikzpicture}[remember picture, overlay]
+    \node[opacity=0.05] at(current page.center){
+        \includegraphics[width=0.7\paperwidth, keepaspectratio]{images/szu_logo_big.png}
+    };
+\end{tikzpicture}
+
+% 个人信息部分
+\begin{figure}[h]
+    \begin{minipage}{0.82\textwidth}
+        \section{\makebox[\widthof{\faAddressCard}][c]{\color{SZU_Pink}{\faAddressCard}}\quad 个人信息}
+        \begin{tabularx}{\linewidth}{p{\widthof{出生日期:}}Xp{\widthof{政治面貌:}}X}
+            姓\ \ \ \ \ \ \ \ 名: & 你的名字 & 
+            性\ \ \ \ \ \ \ \ 别: & 你的性别  \\
+            出生年月:              & 你的出生年月 & 
+            政治面貌:              & 你的政治面貌 \\
+            % 想多加个人信息的按照以上格式加就行。
+        \end{tabularx}
+    \end{minipage}
+    \hspace{2em}
+    \begin{minipage}{0.12\textwidth}   
+    % 头像照片不需一定正方形，长方形也是自动插入。
+    % 调整0.12可调整图片宽度，但需同步调整上文中的\begin{minipage}{0.82\textwidth}中的0.82需要一增一减
+        \setlength{\fboxsep}{0pt}
+        \doublebox{\includegraphics[width=\linewidth]{images/avatar.png}}
+    \end{minipage}
+
+\end{figure}
+\vspace{-1em}
+
+% 教育背景部分
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{SZU_Pink}{\faGraduationCap}}\quad 教育背景}
+\vspace{0.5em}
+{\large \textbf{深圳大学}}，本科 \hfill {广东，深圳} \\
+{{\href{https://csse.szu.edu.cn/}{计算机与软件学院}}}，专业：人工智能 \hfill {2024年9月-2024年9月} \\
+\textbf{主修课程}：1、2、3、4\ 等。
+% 照着改就行应该不难，注意把计算机院的官网换成你们自己学院的，特别的需要提交电子简历的深大友友别忘了。
+
+\vspace{0.5em}
+{\large \textbf{深圳大学}}，硕士 \hfill {广东，深圳} \\
+{{\href{https://csse.szu.edu.cn/}{计算机与软件学院}}}，专业：人工智能 \hfill {2024年9月-2024年9月} \\
+\textbf{主修课程}：1、2、3、4\ 等。
+
+\vspace{0.5em}
+{\large \textbf{深圳大学}}，博士 \hfill {广东，深圳} \\
+{{\href{https://csse.szu.edu.cn/}{计算机与软件学院}}}，专业：人工智能 \hfill {2024年9月-2024年9月} \\
+\textbf{主修课程}：1、2、3、4\ 等。
+
+% 科研成果部分
+% 我知道大家很多都像我一样啥也没有，就三招：小奖照填，稍微夸大，现搓项目（别说是我说的，找我就查无此人(,,#ﾟДﾟ)   ）
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{SZU_Pink}{\faGraduationCap}}\quad 科研成果}
+\vspace{0.5em}
+This is One of Your Paper Published in Conference A. \\
+\textbf{Mingzi Nide}, Daoshi Nide. \hfill 发表于 \textbf{Conference A}（CCF-A类会议）
+
+\vspace{0.5em}
+This is Another Paper. \\
+\textbf{Mingzi Nide}, Shidi Nide, Daoshi Nide. \hfill 发表于 \textbf{Conference B} （CCF-A类会议）
+
+% 项目与教学部分
+% 比较自由，填点当助教的经历，参加讲座的经历，项目经历，都行。改动就看着改。
+\section{\makebox[\widthof{\faChalkboardTeacher}][c]{\color{SZU_Pink}{\faChalkboardTeacher}}\quad 项目与教学}
+\vspace{0.5em}
+{\large{\textbf{项目名称}}} \hfill {横向/纵向项目-已完结/进行中}\\
+\textbf{你在项目中扮演的角色} \hfill 2020年9月至2021年9月\\
+项目简介。
+
+\vspace{1em}
+{\large{\textbf{某某主题讨论班}}}，主讲/参与 \hfill {2020年夏季}\\
+主要内容：内容1，内容2，内容3\ 等。
+
+\vspace{1em}
+{\large{\textbf{课程名称}}}，助教 \hfill {2021年夏季}\\
+主要内容：内容1，内容2，内容3\ 等。
+
+% 技能部分
+% 照着我的格式改就行，当然了，别学我吹牛  （//▽//）
+\section{\makebox[\widthof{\faWrench}][c]{\color{SZU_Pink}{\faWrench}}\quad 技能}
+\vspace{0.5em}
+\begin{itemize}
+    \item 英语：取得CET-4与CET-6证书；
+    \item 德语：完成A1至B2完整学习阶段；
+    \item 编程：Python, MATLAB, C, C++。
+    \item 工业软件：能熟练运用CAD, CATIA等工业软件。
+\end{itemize}
+
+\end{document}
+
