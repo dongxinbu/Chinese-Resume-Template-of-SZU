@@ -21,6 +21,7 @@ https://github.com/max32002/swei-spring
 
 三、使用方法
 使用XeLaTeX编译。建议上传Overleaf编译。
+注意：遇到报错请先确认设置，是否选择xelatex编译？是否选择main.tex文件为主文档？（overleaf更新完有bug，你需要用setting文件编译报错后，改用main文件再编译一次就可以了）
 
 四、其他注意事项
 1. 侵权联系删除谢谢
